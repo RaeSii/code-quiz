@@ -91,6 +91,7 @@ var questionBank = [
 ];
 function endQuiz() {
     clearInterval(timerID)
+    questionEl.setAttribute("style", "display:none");
 }
 function nextQuestion() {
     newQuestion.textContent = questionBank[currentQuestion].question
