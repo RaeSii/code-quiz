@@ -5,18 +5,21 @@ var answerButton1 = document.getElementById('answer1');
 var answerButton2 = document.getElementById('answer2');
 var answerButton3 = document.getElementById('answer3');
 var answerButton4 = document.getElementById('answer4');
+var controls = document.querySelector('.controls')
+controls.setAttribute("style", "display:none");
 var results = document.getElementById('results')
 var timerEl = document.getElementById('timer');
 var timerID;
 var time = 45;
-var currentQuestion = 0
+var currentQuestion = 0;
+var score;
+
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
 answerButton3.addEventListener('click', selectAnswer)
 answerButton4.addEventListener('click', selectAnswer)
 function startQuiz() {
-    var startScreenEl = document.getElementById('start-screen');
-    startScreenEl.setAttribute("class", "hide");
+    startButton.setAttribute("class", "hide");
     questionEl.setAttribute("style", "display:block");
     timerID = setInterval(clockTick, 500);
 
@@ -36,6 +39,7 @@ function selectAnswer() {
     console.log(userAnswer)
     if (userAnswer == questionBank[currentQuestion].correct) {
         results.textContent = 'You are right!'
+        score += 10;
     } else {
         time -= 5;
         results.textContent = 'You are wrong!'
