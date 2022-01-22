@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+</head>
+
+<body>
+    <header>
+        <a href="localStorage">View high scores</a>
+        <p id="timer"></p>
+    </header>
+    <div class="startScreen">
+        <div id="start-screen" class="start">
+            <h2>Coding Quiz Challenge</h2>
+            <p>Try to answer the following code-related questions within the time limit. Answer incorrectly and you'll be penalized by ten seconds.</p>
+            <button id="start-btn">Start Quiz</button>
+        </div>
+    </div>
+    <div class="container">
+        <div id="question-container">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button data-value="0" id="answer1" class="btn">Answer 1</button>
+                <button data-value="1" id="answer2" class="btn">Answer 2</button>
+                <button  data-value="2" id="answer3" class="btn">Answer 3</button>
+                <button data-value="3" id="answer4" class="btn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+        </div>
+    </div>
+    <footer>Module 4 Challenge - Code Quiz</footer>
+</body>
+<script src="./assets/js/script.js"></script>
+
+</html>
