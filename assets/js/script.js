@@ -22,7 +22,7 @@ answerButton4.addEventListener('click', selectAnswer)
 function startQuiz() {
     startButton.setAttribute("class", "hide");
     questionEl.setAttribute("style", "display:block");
-    timerID = setInterval(clockTick, 500);
+    timerID = setInterval(clockTick, 1000);
 
     nextQuestion();
 }
@@ -69,7 +69,7 @@ var questionBank = [
         answers: [
             'quotes', 'curly brackets', 'parenthesis', 'square brackets'
         ],
-        correct: 2
+        correct: 1
     },
 
     {
@@ -91,7 +91,7 @@ var questionBank = [
         answers: [
             'For Loop', 'JaveScript', 'Terminal/Bash', 'Console Log'
         ],
-        correct: 1
+        correct: 3
     }
 ];
 function endQuiz() {
@@ -106,6 +106,17 @@ function nextQuestion() {
     answerButton3.textContent = questionBank[currentQuestion].answers[2]
     answerButton4.textContent = questionBank[currentQuestion].answers[3]
 }
+
+function score () {
+    var selectAnswer = document.getElementById('score');
+    var value_list = [];
+    var score = 0
+    for (var i = 0; i < selectAnswer.length; i++) {
+        value_list.push(selectAnswer[i].checked) 
+            score += Number(value_list[i])
+        }
+    }
+
 
 saveButton.addEventListener('click', saveScore)
 

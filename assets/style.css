@@ -1,6 +1,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 15px;
     }
 
     header {
@@ -15,13 +16,13 @@ header a {
 
 p#timer {
     color: navy;
-    margin: 0;
     padding-left: 65%;
 }
 
 #start-screen.start {
     text-align: center;
     align-content: center;
+    margin: 10px;
 }
 
 div {
@@ -42,7 +43,7 @@ div#question {
 .container {
     border-radius: 5px;
     height: 80vh;
-    width: 85vw;
+    width: 95vw;
     background-color: white;
     border-radius: 5px;
     padding: 10px;
