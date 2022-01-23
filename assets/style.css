@@ -13,10 +13,15 @@ header a {
     color: blueviolet;
     }
 
-header p {
+p#timer {
     color: navy;
     margin: 0;
-    align-items: flex-end;
+    padding-left: 65%;
+}
+
+#start-screen.start {
+    text-align: center;
+    align-content: center;
 }
 
 div {
@@ -45,7 +50,6 @@ div#question {
 }
 
 button {
-    display: ;
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
@@ -80,9 +84,10 @@ button:active {
     align-items: center;
 }
 
+#userid {
+    font-size: 35px;
+}
+
 .hide {
     display: none;
 }
-
-
-

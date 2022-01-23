@@ -10,9 +10,10 @@ controls.setAttribute("style", "display:none");
 var results = document.getElementById('results')
 var timerEl = document.getElementById('timer');
 var timerID;
-var time = 45;
+var time = 75;
 var currentQuestion = 0;
 var score;
+var saveButton = document.getElementById('save-btn');
 
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
@@ -56,41 +57,41 @@ startButton.addEventListener('click', startQuiz)
 
 var questionBank = [
     {
-        question: "1Commonly used data DO NOT include:",
+        question: "Commonly used data DO NOT include:",
         answers: [
             'strings', 'booleans', 'alerts', 'numbers'
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Condtion with an if else statement is enclosed with:",
+        answers: [
+            'quotes', 'curly brackets', 'parenthesis', 'square brackets'
         ],
         correct: 2
     },
 
     {
-        question: "2Commonly used data DO NOT include:",
+        question: "Arrays in JavaScript can be used to store:",
         answers: [
-            'strings', 'booleans', 'alerts', 'numbers'
+            'numbers and strings', 'other Arrays', 'booleans', 'all of the above'
         ],
-        correct: 2
-    },
-
-    {
-        question: "3Commonly used data DO NOT include:",
-        answers: [
-            'strings', 'booleans', 'alerts', 'numbers'
-        ],
-        correct: 2
+        correct: 3
     },
     {
-        question: "4Commonly used data DO NOT include:",
+        question: "String values must be enclosed within _______ when being assigned to variables",
         answers: [
-            'strings', 'booleans', 'alerts', 'numbers'
+            'commas', 'curly brackets', 'quotes', 'parenthesis'
         ],
-        correct: 2
+        correct: 0
     },
     {
-        question: "5Commonly used data DO NOT include:",
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
         answers: [
-            'strings', 'booleans', 'alerts', 'numbers'
+            'For Loop', 'JaveScript', 'Terminal/Bash', 'Console Log'
         ],
-        correct: 2
+        correct: 1
     }
 ];
 function endQuiz() {
@@ -104,4 +105,10 @@ function nextQuestion() {
     answerButton2.textContent = questionBank[currentQuestion].answers[1]
     answerButton3.textContent = questionBank[currentQuestion].answers[2]
     answerButton4.textContent = questionBank[currentQuestion].answers[3]
+}
+
+saveButton.addEventListener('click', saveScore)
+
+function saveScore () {
+    localStorage.setItem(userid, score);
 }
