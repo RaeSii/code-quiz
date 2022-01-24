@@ -109,4 +109,10 @@ function nextQuestion() {
     answerButton3.textContent = questionBank[currentQuestion].answers[2]
     answerButton4.textContent = questionBank[currentQuestion].answers[3]
 }
+saveButton.addEventListener('click', saveScore)
 
+function saveScore() {
+    var userId = document.getElementById('userid[input]')
+    localStorage.setItem(userId, score)
+    window.location.reload();
+};
