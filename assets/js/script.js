@@ -23,6 +23,7 @@ function startQuiz() {
     startButton.setAttribute("class", "hide");
     questionEl.setAttribute("style", "display:block");
     timerID = setInterval(clockTick, 1000);
+    score = 0;
 
     nextQuestion();
 }
@@ -98,6 +99,7 @@ function endQuiz() {
     clearInterval(timerID)
     questionEl.setAttribute("style", "display:none");
     controls.setAttribute("style", "display:block");
+    console.log(score);
 }
 function nextQuestion() {
     newQuestion.textContent = questionBank[currentQuestion].question
@@ -107,19 +109,3 @@ function nextQuestion() {
     answerButton4.textContent = questionBank[currentQuestion].answers[3]
 }
 
-function score () {
-    var selectAnswer = document.getElementById('score');
-    var value_list = [];
-    var score = 0
-    for (var i = 0; i < selectAnswer.length; i++) {
-        value_list.push(selectAnswer[i].checked) 
-            score += Number(value_list[i])
-        }
-    }
-
-
-saveButton.addEventListener('click', saveScore)
-
-function saveScore () {
-    localStorage.setItem(userid, score);
-}
