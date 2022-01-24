@@ -5,14 +5,15 @@ var answerButton1 = document.getElementById('answer1');
 var answerButton2 = document.getElementById('answer2');
 var answerButton3 = document.getElementById('answer3');
 var answerButton4 = document.getElementById('answer4');
-var controls = document.querySelector('.controls')
+var controls = document.querySelector('.controls');
 controls.setAttribute("style", "display:none");
-var results = document.getElementById('results')
+var results = document.getElementById('results');
 var timerEl = document.getElementById('timer');
 var timerID;
 var time = 75;
 var currentQuestion = 0;
 var score;
+var scoreText = document.getElementById('score');
 var saveButton = document.getElementById('save-btn');
 
 answerButton1.addEventListener('click', selectAnswer)
@@ -99,7 +100,7 @@ function endQuiz() {
     clearInterval(timerID)
     questionEl.setAttribute("style", "display:none");
     controls.setAttribute("style", "display:block");
-    console.log(score);
+    scoreText.innerText = score;
 }
 function nextQuestion() {
     newQuestion.textContent = questionBank[currentQuestion].question
