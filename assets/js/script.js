@@ -112,7 +112,7 @@ function nextQuestion() {
 saveButton.addEventListener('click', saveScore)
 
 function saveScore() {
-    var userId = document.getElementById('userid[input]')
+    var userId = document.getElementById('userid').value;
     localStorage.setItem(userId, score)
     window.location.reload();
 };
