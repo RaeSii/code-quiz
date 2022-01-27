@@ -121,8 +121,6 @@ function saveScore() {
     window.location.reload();
 };
 
-//highScoresButton.addEventListener('click', highScoresList)
-
 function highScoresList() {
     console.log("hello");
     //controls.setAttribute("style", "display:none");
