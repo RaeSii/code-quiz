@@ -13,7 +13,12 @@ header a {
     text-decoration: none;
     color: blueviolet;
     }
-
+#highscores {
+    background-color: white;
+    color: blueviolet;
+    box-shadow: none;
+    }
+    
 p#timer {
     color: navy;
     padding-left: 65%;

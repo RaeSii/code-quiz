@@ -7,7 +7,6 @@ var answerButton3 = document.getElementById('answer3');
 var answerButton4 = document.getElementById('answer4');
 var controls = document.querySelector('.controls');
 controls.setAttribute("style", "display:none");
-var results = document.getElementById('results');
 var timerEl = document.getElementById('timer');
 var timerID;
 var time = 75;
@@ -15,6 +14,8 @@ var currentQuestion = 0;
 var score;
 var scoreText = document.getElementById('score');
 var saveButton = document.getElementById('save-btn');
+var highScoresButton = document.getElementById('highscores');
+var highScoresList = document.getElementById('results');
 
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
@@ -112,7 +113,23 @@ function nextQuestion() {
 saveButton.addEventListener('click', saveScore)
 
 function saveScore() {
+    var highScores = JSON.parse(localStorage.getItem('results')) || [];
     var userId = document.getElementById('userid').value;
-    localStorage.setItem(userId, score)
+    var newScore = {name:userId, score:score}
+    highScores.push(newScore)
+    localStorage.setItem('results', JSON.stringify(highScores))
     window.location.reload();
 };
+
+//highScoresButton.addEventListener('click', highScoresList)
+
+function highScoresList() {
+    console.log("hello");
+    //controls.setAttribute("style", "display:none");
+    //results.setAttribute("style", "display:block");
+    var highScores = JSON.parse(localStorage.getItem('results')) || [];
+    console.log(highScores);
+}
+
+highScoresButton.onclick = highScoresList
+console.dir(highScoresButton)
