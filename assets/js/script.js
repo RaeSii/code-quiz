@@ -15,7 +15,7 @@ var score;
 var scoreText = document.getElementById('score');
 var saveButton = document.getElementById('save-btn');
 var highScoresButton = document.getElementById('highscores');
-var highScoresList = document.getElementById('results');
+var resultsEl = document.getElementById('results');
 
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
@@ -26,7 +26,7 @@ function startQuiz() {
     questionEl.setAttribute("style", "display:block");
     timerID = setInterval(clockTick, 1000);
     score = 0;
-
+    resultsEl.setAttribute("stule", "display:block");
     nextQuestion();
 }
 function clockTick() {
@@ -101,7 +101,8 @@ function endQuiz() {
     clearInterval(timerID)
     questionEl.setAttribute("style", "display:none");
     controls.setAttribute("style", "display:block");
-    scoreText.innerText = score;
+    score = score + time;
+    scoreText.innerText ="Your current Score is: "+ score
 }
 function nextQuestion() {
     newQuestion.textContent = questionBank[currentQuestion].question
@@ -118,16 +119,23 @@ function saveScore() {
     var newScore = {name:userId, score:score}
     highScores.push(newScore)
     localStorage.setItem('results', JSON.stringify(highScores))
-    window.location.reload();
+    highScoresList()
+    // window.location.reload();
 };
 
-function highScoresList() {
-    console.log("hello");
-    //controls.setAttribute("style", "display:none");
-    //results.setAttribute("style", "display:block");
-    var highScores = JSON.parse(localStorage.getItem('results')) || [];
-    console.log(highScores);
-}
+highScoresButton.addEventListener('click', highScoresList);
 
-highScoresButton.onclick = highScoresList
-console.dir(highScoresButton)
+function highScoresList() {
+    controls.setAttribute("style", "display:none");
+    resultsEl.setAttribute("style", "display:block");
+    var highScoresList = JSON.parse(localStorage.getItem("results")) || [];
+    var htmlCode ="<ul>"
+    for(let i=0;i<highScoresList.length;i++){
+        htmlCode += ` <li><h3> ${highScoresList[i].name} --- ${highScoresList[i].score}</h3></li>`
+    }
+    htmlCode += "</ul>"
+
+    resultsEl.innerHTML = htmlCode
+    
+    
+};
