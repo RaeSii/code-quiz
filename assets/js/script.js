@@ -24,6 +24,7 @@ answerButton3.addEventListener('click', selectAnswer)
 answerButton4.addEventListener('click', selectAnswer)
 function startQuiz() {
     startButton.setAttribute("class", "hide");
+    clear.setAttribute("class", "hide");
     questionEl.setAttribute("style", "display:block");
     resultsEl.setAttribute("style", "display:none");
     timerID = setInterval(clockTick, 1000);
@@ -101,6 +102,7 @@ var questionBank = [
 function endQuiz() {
     clearInterval(timerID)
     questionEl.setAttribute("style", "display:none");
+    clear.setAttribute("class", "hide");
     controls.setAttribute("style", "display:block");
     score = score + time;
     scoreText.innerText ="Your current Score is: "+ score
@@ -121,7 +123,7 @@ function saveScore() {
     highScores.push(newScore)
     localStorage.setItem('results', JSON.stringify(highScores))
     highScoresList()
-    window.location.reload(5000);
+    window.location.reload();
 };
 
 highScoresButton.addEventListener('click', highScoresList);
@@ -129,7 +131,12 @@ highScoresButton.addEventListener('click', highScoresList);
 function highScoresList() {
     controls.setAttribute("style", "display:none");
     resultsEl.setAttribute("style", "display:block");
+    clear.setAttribute("style", "display:block");
     var highScoresList = JSON.parse(localStorage.getItem("results")) || [];
+    // var sortedScore = resultsEl.sort(function(a,b) {
+    //     return b.score - a.score
+    // });
+    // console.log(sortedScore);
     var htmlCode ="<ul>"
     for(let i=0;i<highScoresList.length;i++){
         htmlCode += ` <li><h3> ${highScoresList[i].name} --- ${highScoresList[i].score}</h3></li>`
