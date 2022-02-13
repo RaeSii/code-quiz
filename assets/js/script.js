@@ -16,6 +16,7 @@ var scoreText = document.getElementById('score');
 var saveButton = document.getElementById('save-btn');
 var highScoresButton = document.getElementById('highscores');
 var resultsEl = document.getElementById('results');
+var clear = document.getElementById('clear');
 
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
@@ -24,9 +25,9 @@ answerButton4.addEventListener('click', selectAnswer)
 function startQuiz() {
     startButton.setAttribute("class", "hide");
     questionEl.setAttribute("style", "display:block");
+    resultsEl.setAttribute("style", "display:none");
     timerID = setInterval(clockTick, 1000);
     score = 0;
-    resultsEl.setAttribute("stule", "display:block");
     nextQuestion();
 }
 function clockTick() {
@@ -120,7 +121,7 @@ function saveScore() {
     highScores.push(newScore)
     localStorage.setItem('results', JSON.stringify(highScores))
     highScoresList()
-    window.location.reload();
+    window.location.reload(5000);
 };
 
 highScoresButton.addEventListener('click', highScoresList);
@@ -136,6 +137,12 @@ function highScoresList() {
     htmlCode += "</ul>"
 
     resultsEl.innerHTML = htmlCode
-    
-    
+       
+};
+
+clear.addEventListener('click', clearScores)
+
+function clearScores() {
+    localStorage.clear()
+    window.location.reload();
 };
