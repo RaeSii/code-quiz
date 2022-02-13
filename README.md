@@ -29,6 +29,6 @@ HTML, JavaScript, CSS, JQuery
 Rachel Schaaf
 
 #### Screenshot
-! [Image](
+! [Image](./assets/images/img1.png)
 
 

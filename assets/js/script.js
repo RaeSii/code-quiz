@@ -120,7 +120,7 @@ function saveScore() {
     highScores.push(newScore)
     localStorage.setItem('results', JSON.stringify(highScores))
     highScoresList()
-    // window.location.reload();
+    window.location.reload();
 };
 
 highScoresButton.addEventListener('click', highScoresList);
