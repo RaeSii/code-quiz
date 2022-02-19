@@ -122,6 +122,8 @@ function saveScore() {
     var userId = document.getElementById('userid').value;
     var newScore = {name:userId, score:score}
     highScores.push(newScore)
+    highScores.sort((a,b) => b.score - a.score);
+    highScores.splice(5);
     localStorage.setItem('results', JSON.stringify(highScores))
     highScoresList()
     // window.location.reload()
@@ -150,16 +152,15 @@ function highScoresList() {
        
 };
 
-goBackButton.addEventListener('click', goBack);
-
-function goBack() {
-    window.location.reload();
-};
-
-
 clear.addEventListener('click', clearScores)
 
 function clearScores() {
     localStorage.clear()
+    window.location.reload();
+};
+
+goBackButton.addEventListener('click', goBack);
+
+function goBack() {
     window.location.reload();
 };
