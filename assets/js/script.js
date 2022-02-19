@@ -17,6 +17,7 @@ var saveButton = document.getElementById('save-btn');
 var highScoresButton = document.getElementById('highscores');
 var resultsEl = document.getElementById('results');
 var clear = document.getElementById('clear');
+var goBackButton = document.getElementById('go-back');
 
 answerButton1.addEventListener('click', selectAnswer)
 answerButton2.addEventListener('click', selectAnswer)
@@ -123,7 +124,7 @@ function saveScore() {
     highScores.push(newScore)
     localStorage.setItem('results', JSON.stringify(highScores))
     highScoresList()
-    window.location.reload();
+    // window.location.reload()
 };
 
 highScoresButton.addEventListener('click', highScoresList);
@@ -132,11 +133,13 @@ function highScoresList() {
     controls.setAttribute("style", "display:none");
     resultsEl.setAttribute("style", "display:block");
     clear.setAttribute("style", "display:block");
+    goBackButton.setAttribute("style", "display:block");
     var highScoresList = JSON.parse(localStorage.getItem("results")) || [];
     // var sortedScore = resultsEl.sort(function(a,b) {
     //     return b.score - a.score
     // });
     // console.log(sortedScore);
+    // resultsEl.sort();
     var htmlCode ="<ul>"
     for(let i=0;i<highScoresList.length;i++){
         htmlCode += ` <li><h3> ${highScoresList[i].name} --- ${highScoresList[i].score}</h3></li>`
@@ -146,6 +149,13 @@ function highScoresList() {
     resultsEl.innerHTML = htmlCode
        
 };
+
+goBackButton.addEventListener('click', goBack);
+
+function goBack() {
+    window.location.reload();
+};
+
 
 clear.addEventListener('click', clearScores)
 
