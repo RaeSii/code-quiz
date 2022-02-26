@@ -1,4 +1,4 @@
-# code-quiz
+# Code-Quiz
 
 # Deployment: 
 [Live](https://raesii.github.io/code-quiz/)
@@ -23,12 +23,12 @@ WHEN the game is over
 THEN I can save my initials and score //DONE
 
 ### Technology
-HTML, JavaScript, CSS, JQuery
+HTML, JavaScript, CSS, Bootstrap, JQuery
 
 #### Coded by:
 Rachel Schaaf
 
 #### Screenshot
-! [Image](./assets/images/img1.png)
+![Image](https://github.com/RaeSii/code-quiz/blob/main/assets/images/img1.png)
 
 
